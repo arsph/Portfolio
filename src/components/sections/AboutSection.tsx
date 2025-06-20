@@ -19,7 +19,6 @@ const content = {
     de: "Im Laufe der Jahre habe ich meine Fähigkeiten in verschiedenen Technologien verfeinert, darunter React, Next.js, Node.js und mobile Entwicklungsplattformen. Ich glaube an kontinuierliches Lernen und erkunde ständig neue Werkzeuge und Frameworks, um an der Spitze der Innovation zu bleiben."
   },
   personalInfoTitle: { en: "Let's Connect", de: "Vernetzen wir uns" },
-  name: { en: "Name:", de: "Name:"},
   ryanAdams: { en: "Ryan Adams", de: "Ryan Adams"},
   email: { en: "Email:", de: "Email:"},
   myEmail: { en: "ryan.adams@example.com", de: "ryan.adams@example.com"},
@@ -39,7 +38,6 @@ export function AboutSection({ lang }: AboutSectionProps) {
             <p>{content.paragraph2[lang]}</p>
             <h3 className="text-xl font-headline text-primary pt-4">{content.personalInfoTitle[lang]}</h3>
             <ul className="space-y-2 text-sm">
-                <li className="flex justify-between"><span>{content.name[lang]}</span> <span className="font-medium">{content.ryanAdams[lang]}</span></li>
                 <li className="flex justify-between"><span>{content.email[lang]}</span> <span className="font-medium text-accent hover:underline"><a href={`mailto:${content.myEmail[lang]}`}>{content.myEmail[lang]}</a></span></li>
                 <li className="flex justify-between"><span>{content.github[lang]}</span> <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">github.com/ryan-adams</a></li>
                 <li className="flex justify-between"><span>{content.linkedin[lang]}</span> <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">linkedin.com/in/ryan-adams</a></li>
