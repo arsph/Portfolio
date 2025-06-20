@@ -22,9 +22,7 @@ interface SidebarProps {
 const content = {
   name: { en: "Ryan Adams", de: "Ryan Adams" },
   title: { en: "App Developer", de: "App Entwickler" },
-  residence: { en: "Germany", de: "Deutschland" },
-  freelance: { en: "Available", de: "Verfügbar" },
-  address: { en: "Berlin", de: "Berlin" },
+  freelance: { en: "Available for Work", de: "Für Arbeit verfügbar" },
 };
 
 export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen, toggleMobileMenu }: SidebarProps) {
@@ -69,10 +67,8 @@ export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen,
         <p className="text-sm text-muted-foreground">{content.title[currentLang]}</p>
       </div>
 
-      <div className="bg-muted/50 p-4 rounded-lg shadow-inner space-y-2 text-sm">
-        <div className="flex justify-between"><span>Residence:</span> <span className="font-medium">{content.residence[currentLang]}</span></div>
-        <div className="flex justify-between"><span>Freelance:</span> <span className="font-medium text-accent">{content.freelance[currentLang]}</span></div>
-        <div className="flex justify-between"><span>Address:</span> <span className="font-medium">{content.address[currentLang]}</span></div>
+      <div className="bg-muted/50 p-3 text-center rounded-lg shadow-inner">
+        <span className="font-medium text-accent">{content.freelance[currentLang]}</span>
       </div>
 
       <SocialLinks className="justify-center" />

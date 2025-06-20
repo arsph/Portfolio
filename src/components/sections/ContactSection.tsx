@@ -3,7 +3,7 @@
 import { SectionCard } from "@/components/SectionCard";
 import { ContactForm } from "@/components/ContactForm";
 import type { Language, Content } from "@/types";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail } from "lucide-react";
 
 interface ContactSectionProps {
   lang: Language;
@@ -17,10 +17,6 @@ const content = {
   },
   emailLabel: { en: "Email", de: "Email" },
   emailValue: { en: "ryan.adams@example.com", de: "ryan.adams@example.com" },
-  phoneLabel: { en: "Phone", de: "Telefon" },
-  phoneValue: { en: "+0123 456 789", de: "+0123 456 789" },
-  addressLabel: { en: "Address", de: "Adresse" },
-  addressValue: { en: "Berlin, Germany", de: "Berlin, Deutschland" }
 };
 
 export function ContactSection({ lang }: ContactSectionProps) {
@@ -35,20 +31,6 @@ export function ContactSection({ lang }: ContactSectionProps) {
             <div>
               <h4 className="font-semibold text-foreground">{content.emailLabel[lang]}</h4>
               <a href={`mailto:${content.emailValue[lang]}`} className="text-muted-foreground hover:text-accent transition-colors">{content.emailValue[lang]}</a>
-            </div>
-          </div>
-          <div className="flex items-start">
-            <Phone className="h-6 w-6 text-accent mr-4 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-foreground">{content.phoneLabel[lang]}</h4>
-              <p className="text-muted-foreground">{content.phoneValue[lang]}</p>
-            </div>
-          </div>
-           <div className="flex items-start">
-            <MapPin className="h-6 w-6 text-accent mr-4 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-foreground">{content.addressLabel[lang]}</h4>
-              <p className="text-muted-foreground">{content.addressValue[lang]}</p>
             </div>
           </div>
         </div>
