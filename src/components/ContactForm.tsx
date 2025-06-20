@@ -1,6 +1,8 @@
+
 "use client";
 
-import { useFormState, useFormStatus } from "react-dom";
+import { useActionState, useEffect } from "react"; // Changed from react-dom's useFormState
+import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -11,7 +13,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { Terminal, CheckCircle, AlertCircle } from "lucide-react";
-import { useEffect } from "react";
+
 import { useToast } from "@/hooks/use-toast";
 import type { Language } from "@/types";
 
@@ -58,7 +60,7 @@ interface ContactFormProps {
 }
 
 export function ContactForm({ lang }: ContactFormProps) {
-  const [state, formAction] = useFormState(submitContactForm, initialFormState);
+  const [state, formAction] = useActionState(submitContactForm, initialFormState); // Changed to useActionState
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
