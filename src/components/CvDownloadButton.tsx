@@ -1,0 +1,24 @@
+import { Button } from "@/components/ui/button";
+import { Download } from "lucide-react";
+import type { Language } from "@/types";
+
+const buttonText = {
+  en: "Download CV",
+  de: "Lebenslauf Herunterladen",
+};
+
+interface CvDownloadButtonProps {
+  lang: Language;
+  className?: string;
+}
+
+export function CvDownloadButton({ lang, className }: CvDownloadButtonProps) {
+  return (
+    <Button asChild variant="outline" className={className}>
+      <a href="/ryan-cv.pdf" download="Ryan_Adams_CV.pdf" aria-label={buttonText[lang]}>
+        <Download className="mr-2 h-4 w-4" />
+        {buttonText[lang]}
+      </a>
+    </Button>
+  );
+}
