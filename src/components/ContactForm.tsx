@@ -1,8 +1,7 @@
 
 "use client";
 
-import { useActionState, useEffect } from "react"; // Changed from react-dom's useFormState
-import { useFormStatus } from "react-dom";
+import { useActionState, useEffect, useTransition } from "react"; // Changed from react-dom's useFormState
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -46,10 +45,9 @@ const content = {
 
 
 function SubmitButton({ lang, isSubmitting }: { lang: Language, isSubmitting: boolean }) {
-  const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending || isSubmitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md">
-      {pending || isSubmitting ? content.submittingButton[lang] : content.submitButton[lang]}
+    <Button type="submit" disabled={isSubmitting} className="w-full bg-accent text-accent-foreground hover:bg-accent/90 shadow-md">
+      {isSubmitting ? content.submittingButton[lang] : content.submitButton[lang]}
     </Button>
   );
 }
@@ -60,6 +58,7 @@ interface ContactFormProps {
 
 export function ContactForm({ lang }: ContactFormProps) {
   const [state, formAction] = useActionState(submitContactForm, initialFormState); // Changed to useActionState
+  const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
   const form = useForm<ContactFormValues>({
@@ -89,9 +88,8 @@ export function ContactForm({ lang }: ContactFormProps) {
     }
   }, [state, toast, form, lang]);
 
-  // Use form.formState.isSubmitting for client-side indication if needed, 
-  // but useFormStatus is generally preferred for server actions.
-  const isSubmitting = form.formState.isSubmitting;
+  // Use isPending from useTransition for server action state
+  const isSubmitting = isPending;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -102,7 +100,10 @@ export function ContactForm({ lang }: ContactFormProps) {
     formData.append("email", form.getValues("email"));
     formData.append("message", form.getValues("message"));
     
-    formAction(formData);
+    // Use startTransition to properly handle the server action
+    startTransition(() => {
+      formAction(formData);
+    });
   };
 
 

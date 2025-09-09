@@ -26,7 +26,7 @@ async function sendEmail(name: string, email: string, message: string): Promise<
 
     const { data, error } = await resend.emails.send({
       from: 'Portfolio Contact Form <onboarding@resend.dev>',
-      to: ['parham_arsalan@yahoo.com'],
+      to: ['parhamarsalan@gmail.com'],
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
       html: `

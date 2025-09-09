@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionCard } from "@/components/SectionCard";
-import { ContactFormStatic } from "@/components/ContactFormStatic";
+import { ContactForm } from "@/components/ContactForm";
 import type { Language, Content } from "@/types";
 import { Mail } from "lucide-react";
 
@@ -35,7 +35,7 @@ export function ContactSection({ lang }: ContactSectionProps) {
           </div>
         </div>
         <div>
-          <ContactFormStatic lang={lang} />
+          <ContactForm lang={lang} />
         </div>
       </div>
     </SectionCard>
