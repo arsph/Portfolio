@@ -21,8 +21,8 @@ export function CvDownloadButton({ lang, className }: CvDownloadButtonProps) {
   return (
     <Button asChild variant="outline" className={className}>
       <a 
-        href="/ryan-cv.pdf" 
-        download="Ryan_Adams_CV.pdf" 
+        href="/arsalan-cv.pdf" 
+        download="Arsalan_Parham_CV.pdf" 
         aria-label={buttonText[lang]}
         onClick={handleDownload}
       >

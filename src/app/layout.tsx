@@ -5,14 +5,14 @@ import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
-  title: 'RyanCV - App Developer Portfolio',
-  description: 'Ryan Adams - Professional App Developer. Explore my projects, skills, and experience. Contact me for collaboration.',
-  keywords: ['ReactJS', 'NextJS', 'TailwindCSS', 'App Developer', 'Portfolio', 'Ryan Adams', 'Full Stack Developer', 'Web Developer'],
-  authors: [{ name: 'Ryan Adams' }],
-  creator: 'Ryan Adams',
+  title: 'Arsalan Parham - Portfolio',
+  description: 'Arsalan Parham - Professional Developer. Explore my projects, skills, and experience. Contact me for collaboration.',
+  keywords: ['ReactJS', 'NextJS', 'TailwindCSS', 'App Developer', 'Portfolio', 'Arsalan Parham', 'Full Stack Developer', 'Web Developer'],
+  authors: [{ name: 'Arsalan Parham' }],
+  creator: 'Arsalan Parham',
   openGraph: {
-    title: 'RyanCV - App Developer Portfolio',
-    description: 'Ryan Adams - Professional App Developer. Explore my projects, skills, and experience.',
+    title: 'Arsalan Parham - Portfolio',
+    description: 'Arsalan Parham - Professional Developer. Explore my projects, skills, and experience.',
     type: 'website',
     locale: 'en_US',
     // TODO: Add a URL for the deployed site
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     //     url: 'https://your-domain.com/og-image.png',
     //     width: 1200,
     //     height: 630,
-    //     alt: 'Ryan Adams Portfolio',
+    //     alt: 'Arsalan Parham Portfolio',
     //   },
     // ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RyanCV - App Developer Portfolio',
-    description: 'Ryan Adams - Professional App Developer. Explore my projects, skills, and experience.',
+    title: 'Arsalan Parham - Portfolio',
+    description: 'Arsalan Parham - Professional Developer. Explore my projects, skills, and experience.',
     // TODO: Add Twitter handle
     // creator: '@yourTwitterHandle', 
     // TODO: Add an image for Twitter card

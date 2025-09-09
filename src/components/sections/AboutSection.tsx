@@ -18,7 +18,7 @@ const content = {
     de: "Im Laufe der Jahre habe ich meine Fähigkeiten in verschiedenen Technologien verfeinert, darunter Java Script, React, Next.js, WordPress, Python und Data-Science-Prinzipien. Außerdem lerne ich sehr schnell und kann neue Technologien problemlos erlernen und umstellen. Ich glaube an kontinuierliches Lernen und erkunde ständig neue Tools und Frameworks, um an der Spitze der Innovation zu bleiben."
   },
   personalInfoTitle: { en: "Let's Connect", de: "Vernetzen wir uns" },
-  ryanAdams: { en: "Arsalan Parham", de: "Arsalan Parham"},
+  name: { en: "Arsalan Parham", de: "Arsalan Parham"},
   email: { en: "Email:", de: "Email:"},
   myEmail: { en: "info@arsalanparham.com", de: "info@arsalanparham.com"},
   github: { en: "GitHub:", de: "GitHub:"},
