@@ -1,7 +1,7 @@
 "use client";
 
 import { SectionCard } from "@/components/SectionCard";
-import { ContactForm } from "@/components/ContactForm";
+import { ContactFormStatic } from "@/components/ContactFormStatic";
 import type { Language, Content } from "@/types";
 import { Mail } from "lucide-react";
 
@@ -16,7 +16,7 @@ const content = {
     de: "Zögern Sie nicht, mich zu kontaktieren! Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Visionen zu sein."
   },
   emailLabel: { en: "Email", de: "Email" },
-  emailValue: { en: "ryan.adams@example.com", de: "ryan.adams@example.com" },
+  emailValue: { en: "info@arsalanparham.com", de: "info@arsalanparham.com" },
 };
 
 export function ContactSection({ lang }: ContactSectionProps) {
@@ -35,7 +35,7 @@ export function ContactSection({ lang }: ContactSectionProps) {
           </div>
         </div>
         <div>
-          <ContactForm lang={lang} />
+          <ContactFormStatic lang={lang} />
         </div>
       </div>
     </SectionCard>

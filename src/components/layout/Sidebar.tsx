@@ -1,11 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { Home, User, Briefcase, Star, FolderGit, Send, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { CvDownloadButton } from "@/components/CvDownloadButton";
 import { SocialLinks } from "@/components/SocialLinks";
 import type { Language, NavItem, Content } from "@/types";
 import { cn } from "@/lib/utils";
@@ -20,9 +18,9 @@ interface SidebarProps {
 }
 
 const content = {
-  name: { en: "Ryan Adams", de: "Ryan Adams" },
-  title: { en: "App Developer", de: "App Entwickler" },
-  freelance: { en: "Available for Work", de: "Für Arbeit verfügbar" },
+  name: { en: "Arsalan Parham", de: "Arsalan Parham" },
+  title: { en: "Software Developer", de: "Software Entwickler" },
+  freelance: { en: "Open to Work", de: "Offen für Arbeit" },
 };
 
 export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen, toggleMobileMenu }: SidebarProps) {
@@ -34,8 +32,7 @@ export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen,
       case "hero": return <Home className="h-5 w-5" />;
       case "about": return <User className="h-5 w-5" />;
       case "resume": return <Briefcase className="h-5 w-5" />;
-      case "services": return <Star className="h-5 w-5" />;
-      case "skills": return <Star className="h-5 w-5" />; // Using Star for skills too, adjust as needed
+      case "skills": return <Star className="h-5 w-5" />;
       case "portfolio": return <FolderGit className="h-5 w-5" />;
       case "contact": return <Send className="h-5 w-5" />;
       default: return <Home className="h-5 w-5" />;
@@ -54,15 +51,9 @@ export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen,
 
   const sidebarContent = (
     <>
+      <LanguageSwitcher currentLang={currentLang} onLangChange={onLangChange} />
+
       <div className="text-center">
-        <Image
-          src="https://placehold.co/150x150.png"
-          alt={content.name[currentLang]}
-          width={150}
-          height={150}
-          className="rounded-full mx-auto mb-4 border-4 border-primary shadow-lg"
-          data-ai-hint="profile picture"
-        />
         <h1 className="text-3xl font-headline text-primary">{content.name[currentLang]}</h1>
         <p className="text-sm text-muted-foreground">{content.title[currentLang]}</p>
       </div>
@@ -71,10 +62,7 @@ export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen,
         <span className="font-medium text-accent">{content.freelance[currentLang]}</span>
       </div>
 
-      <SocialLinks className="justify-center" />
-      <LanguageSwitcher currentLang={currentLang} onLangChange={onLangChange} />
-
-      <nav className="flex-grow overflow-y-auto space-y-2">
+      <nav className="space-y-2">
         {navItems.map((item) => (
           <Button
             key={item.id}
@@ -91,7 +79,7 @@ export function Sidebar({ currentLang, onLangChange, navItems, isMobileMenuOpen,
         ))}
       </nav>
 
-      <CvDownloadButton lang={currentLang} className="w-full bg-accent text-accent-foreground hover:bg-accent/90" />
+      <SocialLinks className="justify-center" />
     </>
   );
 

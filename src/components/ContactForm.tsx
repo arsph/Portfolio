@@ -1,11 +1,12 @@
 
 "use client";
 
-import { useActionState, useEffect } from "react"; // Changed from react-dom's useFormState
+import { useActionState, useEffect, useRef } from "react"; // Changed from react-dom's useFormState
 import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+// import ReCAPTCHA from "react-google-recaptcha"; // Temporarily disabled
 import { submitContactForm, type ContactFormState } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -72,6 +73,8 @@ export function ContactForm({ lang }: ContactFormProps) {
     },
   });
 
+  // const recaptchaRef = useRef<ReCAPTCHA>(null); // Temporarily disabled
+
   useEffect(() => {
     if (state.status === "success") {
       toast({
@@ -93,9 +96,37 @@ export function ContactForm({ lang }: ContactFormProps) {
   // but useFormStatus is generally preferred for server actions.
   const isSubmitting = form.formState.isSubmitting;
 
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    // Temporarily disabled reCAPTCHA validation
+    // const token = recaptchaRef.current?.getValue();
+    // if (!token) {
+    //   toast({
+    //     title: "reCAPTCHA Required",
+    //     description: "Please complete the reCAPTCHA to submit the form.",
+    //     variant: "destructive",
+    //   });
+    //   return;
+    // }
+    
+    // Create FormData and submit
+    const formData = new FormData();
+    formData.append("name", form.getValues("name"));
+    formData.append("email", form.getValues("email"));
+    formData.append("message", form.getValues("message"));
+    formData.append("recaptchaToken", "disabled"); // Temporary placeholder
+    
+    formAction(formData);
+  };
+
+  // const handleRecaptchaChange = (token: string | null) => {
+  //   // Token is automatically handled by the widget
+  //   // We can add additional logic here if needed
+  // }; // Temporarily disabled
+
 
   return (
-    <form action={formAction} className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <Label htmlFor="name" className="text-foreground">{content.nameLabel[lang]}</Label>
         <Input
@@ -149,9 +180,16 @@ export function ContactForm({ lang }: ContactFormProps) {
         )}
       </div>
       
-      <div className="text-xs text-muted-foreground p-2 border border-dashed border-border rounded-md">
-        <p>{content.recaptchaPlaceholder[lang]}</p>
+      {/* Temporarily disabled reCAPTCHA
+      <div className="flex justify-center">
+        <ReCAPTCHA
+          ref={recaptchaRef}
+          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
+          onChange={handleRecaptchaChange}
+          theme="light"
+        />
       </div>
+      */}
 
       <SubmitButton lang={lang} isSubmitting={isSubmitting}/>
     </form>

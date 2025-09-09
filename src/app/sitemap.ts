@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next'
- 
+
+export const dynamic = 'force-static'
+
 export default function sitemap(): MetadataRoute.Sitemap {
   // TODO: Replace 'https://your-domain.com' with the actual domain
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://your-domain.com';

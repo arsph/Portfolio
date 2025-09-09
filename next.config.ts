@@ -18,6 +18,10 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  // Optimize for Google Analytics
+  experimental: {
+    optimizePackageImports: ['@next/third-parties'],
+  },
 };
 
 export default nextConfig;

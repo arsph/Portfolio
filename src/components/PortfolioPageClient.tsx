@@ -6,7 +6,6 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ResumeSection } from "@/components/sections/ResumeSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { PortfolioSection } from "@/components/sections/PortfolioSection";
 import { ContactSection } from "@/components/sections/ContactSection";
@@ -17,8 +16,7 @@ const navItemsData: NavItem[] = [
   { id: "hero", label: { en: "Home", de: "Startseite" }, href: "#hero" },
   { id: "about", label: { en: "About Me", de: "Über Mich" }, href: "#about" },
   { id: "resume", label: { en: "Resume", de: "Lebenslauf" }, href: "#resume" },
-  { id: "services", label: { en: "Services", de: "Dienstleistungen" }, href: "#services" },
-  { id: "skills", label: { en: "Skills", de: "Fähigkeiten" }, href: "#skills" },
+  { id: "skills", label: { en: "Skills", de: "Skills" }, href: "#skills" },
   { id: "portfolio", label: { en: "Portfolio", de: "Portfolio" }, href: "#portfolio" },
   { id: "contact", label: { en: "Contact", de: "Kontakt" }, href: "#contact" },
 ];
@@ -81,7 +79,6 @@ export default function PortfolioPageClient() {
           <HeroSection lang={currentLang} />
           <AboutSection lang={currentLang} />
           <ResumeSection lang={currentLang} />
-          <ServicesSection lang={currentLang} />
           <SkillsSection lang={currentLang} />
           <PortfolioSection lang={currentLang} />
           <ContactSection lang={currentLang} />

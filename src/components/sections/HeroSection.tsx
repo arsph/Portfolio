@@ -12,21 +12,22 @@ interface HeroSectionProps {
 }
 
 const heroContent = {
-  greeting: { en: "Hello, I'm", de: "Hallo, ich bin" },
-  name: { en: "Ryan Adams", de: "Ryan Adams" },
-  title: { en: "App Developer", de: "App Entwickler" },
+  greeting: { en: "Hi, I'm", de: "Hi, ich bin" },
+  name: { en: "Arsalan Parham", de: "Arsalan Parham" },
+  title: { en: "Software Developer", de: "Software Entwickler" },
   description: {
-    en: "I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores.",
-    de: "Ich entwerfe und entwickle Dienstleistungen für Kunden jeder Größe und bin spezialisiert auf die Erstellung stilvoller, moderner Websites, Webdienste und Online-Shops."
+    en: "I am a software developer with experience in frontend development and studied data science and software engineering. I enjoy learning new things and sharing them with the team members and can speak three different languages: English, German and Persian.",
+    de: "Ich bin Softwareentwickler mit Erfahrung in der Frontend-Entwicklung und habe Data Science und Software Engineering studiert. Ich lerne gerne Neues und teile es mit den Teammitgliedern. Ich spreche drei verschiedene Sprachen: Englisch, Deutsch und Persisch."
   },
-  cta: { en: "See My Work", de: "Meine Arbeit Ansehen" },
+  cta: { en: "See My Work", de: "Meine Projekte Ansehen" },
 };
 
 export function HeroSection({ lang }: HeroSectionProps) {
   return (
     <section id="hero" className="min-h-[calc(100vh-4rem)] lg:min-h-screen flex items-center justify-center relative pt-16 lg:pt-0 overflow-hidden">
+      {/* Background Image - Replace with your own image */}
       <div className="absolute inset-0 opacity-10 -z-10">
-         <Image src="https://placehold.co/1920x1080.png" alt="Abstract background" layout="fill" objectFit="cover" data-ai-hint="abstract tech background" />
+         <Image src="/images/profile.jpg" alt="Abstract background" layout="fill" objectFit="cover" data-ai-hint="abstract tech background" />
       </div>
       <div className="container mx-auto px-4 animate-fade-in">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-12">
@@ -48,13 +49,13 @@ export function HeroSection({ lang }: HeroSectionProps) {
             </Button>
           </div>
           <div className="md:w-1/2 lg:w-2/5 mt-8 md:mt-0 flex justify-center">
+            {/* Profile Image - Replace with your own image */}
             <Image 
-              src="https://placehold.co/400x500.png" 
+              src="/images/profile.jpg" 
               alt={heroContent.name[lang] + " portrait"}
               width={400} 
               height={500} 
-              className="rounded-lg shadow-2xl object-cover transform transition-all duration-500 hover:scale-105"
-              data-ai-hint="developer portrait"
+              className="rounded-lg shadow-2xl object-cover object-top transform transition-all duration-500 hover:scale-105"
               priority 
             />
           </div>

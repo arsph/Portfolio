@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { Toaster }
-from "@/components/ui/toaster";
+import { Toaster } from "@/components/ui/toaster";
+import GoogleAnalytics from '@/components/GoogleAnalytics';
+import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'RyanCV - App Developer Portfolio',
@@ -68,6 +69,10 @@ export default function RootLayout({
       <body className="font-body antialiased" suppressHydrationWarning={true}>
         {children}
         <Toaster />
+        <CookieConsent />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
       </body>
     </html>
   );

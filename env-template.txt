@@ -1,0 +1,20 @@
+# Environment Variables Template
+# Copy this to .env.local for development or add to your Vercel environment
+
+# Google Analytics (Optional)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-S8LXKYBJ4J
+
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=https://arsalanparham.com
+
+# Email Service (Resend)
+# Get your API key from https://resend.com/api-keys
+RESEND_API_KEY=re_your_api_key_here
+
+# reCAPTCHA (Optional - currently disabled)
+RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
+
+# Instructions:
+# 1. Copy this file to .env.local for local development
+# 2. For Vercel deployment, add these variables in your Vercel dashboard
+# 3. Get your Resend API key from https://resend.com/api-keys

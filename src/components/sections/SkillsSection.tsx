@@ -9,16 +9,22 @@ interface SkillsSectionProps {
 }
 
 const content = {
-  title: { en: "My Skills", de: "Meine Fähigkeiten" },
+  title: { en: "Skills", de: "Skills" },
   skills: [
-    { name: "React & Next.js", level: 95, levelText: { en: "Expert", de: "Experte" } },
-    { name: "JavaScript & TypeScript", level: 90, levelText: { en: "Expert", de: "Experte" } },
-    { name: "Node.js & Express", level: 85, levelText: { en: "Advanced", de: "Fortgeschritten" } },
-    { name: "Swift & Kotlin (Mobile)", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
-    { name: "UI/UX Design Principles", level: 75, levelText: { en: "Proficient", de: "Kompetent" } },
-    { name: "Tailwind CSS & ShadCN", level: 90, levelText: { en: "Expert", de: "Experte" } },
-    { name: "Database (SQL/NoSQL)", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
-    { name: "Cloud (AWS/Firebase)", level: 70, levelText: { en: "Proficient", de: "Kompetent" } },
+    { name: "HTML & CSS", level: 90, levelText: { en: "Expert", de: "Experte" } },
+    { name: "JavaScript & TypeScript", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "Bootstrap & Tailwind CSS", level: 85, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "React & Vue", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "Responsive Design", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "WordPress", level: 90, levelText: { en: "Expert", de: "Experte" } },
+    { name: "SQL", level: 85, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "Laravel & PHP", level: 70, levelText: { en: "Proficient", de: "Kompetent" } },
+    { name: "Git & GitHub", level: 85, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "Python & Machine Learning", level: 75, levelText: { en: "Proficient", de: "Kompetent" } },
+    { name: "Cursor AI", level: 85, levelText: { en: "Proficient", de: "Kompetent" } },
+    { name: "AWS & Cloud", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } },
+    { name: "English", level: 90, levelText: { en: "Expert", de: "Experte" } },
+    { name: "Deutsch", level: 80, levelText: { en: "Advanced", de: "Fortgeschritten" } }
   ]
 };
 

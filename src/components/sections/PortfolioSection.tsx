@@ -6,6 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import type { Language, Content } from "@/types";
+import { analytics } from "@/lib/analytics";
 
 interface PortfolioSectionProps {
   lang: Language;
@@ -15,48 +16,37 @@ const content = {
   title: { en: "Portfolio", de: "Portfolio" },
   projects: [
     {
-      imageSrc: "https://placehold.co/600x400.png",
-      imageHint: "app interface",
-      title: { en: "E-commerce Platform", de: "E-Commerce Plattform" },
+      imageSrc: "/images/weather-forecast.png",
+      imageHint: "weather app interface",
+      title: { en: "Weather Forecast", de: "Wettervorhersage" },
       description: { 
-        en: "A full-featured e-commerce platform with Next.js, Stripe integration, and admin dashboard.",
-        de: "Eine voll funktionsfähige E-Commerce-Plattform mit Next.js, Stripe-Integration und Admin-Dashboard."
+        en: "A modern weather application built with React, Vite, and Tailwind CSS. Get real-time weather information for any city using the OpenWeatherMap API. Responsive, fast, and easy to use.",
+        de: "Eine moderne Wetteranwendung, erstellt mit React, Vite und Tailwind CSS. Erhalten Sie Echtzeit-Wetterinformationen für jede Stadt über die OpenWeatherMap API. Responsive, schnell und einfach zu bedienen."
       },
-      link: "#",
-      tags: ["Next.js", "Stripe", "Tailwind CSS"]
+      link: "https://weather.arsiph.com/",
+      tags: ["React.js", "Tailwind CSS", "Restful API"]
     },
     {
-      imageSrc: "https://placehold.co/600x400.png",
-      imageHint: "mobile app",
-      title: { en: "Task Management App", de: "Aufgabenverwaltungs-App" },
+      imageSrc: "/images/portfolio-banner.png",
+      imageHint: "portfolio website banner",
+      title: { en: "Portfolio Website", de: "Portfolio Website" },
       description: {
-        en: "A cross-platform mobile app for task management, built with React Native and Firebase.",
-        de: "Eine plattformübergreifende mobile App zur Aufgabenverwaltung, erstellt mit React Native und Firebase."
+        en: "My bilingual portfolio website built with Next.js, React, and Tailwind CSS.",
+        de: "Meine zweisprachige Portfolio-Website, erstellt mit Next.js, React und Tailwind CSS."
       },
-      link: "#",
-      tags: ["React Native", "Firebase", "Mobile"]
+      link: "https://arsalanparham.com",
+      tags: ["Next.js", "React.js", "Tailwind CSS", "Typescript"]
     },
     {
-      imageSrc: "https://placehold.co/600x400.png",
-      imageHint: "dashboard analytics",
-      title: { en: "Data Analytics Dashboard", de: "Datenanalyse-Dashboard" },
+      imageSrc: "/images/spartan-kronos-banner.png",
+      imageHint: "Spartan Kronos website banner",
+      title: { en: "Spartan Kronos", de: "Spartan Kronos" },
       description: {
-        en: "A real-time data analytics dashboard using D3.js and a Python backend.",
-        de: "Ein Echtzeit-Datenanalyse-Dashboard mit D3.js und einem Python-Backend."
+        en: "A multilingual website built with WordPress and Elementor based on a responsive design.",
+        de: "Eine mehrsprachige Website, erstellt mit WordPress und Elementor basierend auf einem responsiven Design."
       },
-      link: "#",
-      tags: ["D3.js", "Python", "Analytics"]
-    },
-     {
-      imageSrc: "https://placehold.co/600x400.png",
-      imageHint: "social media",
-      title: { en: "Social Networking Site", de: "Soziales Netzwerk" },
-      description: {
-        en: "A feature-rich social networking platform with user profiles, posts, and real-time chat.",
-        de: "Eine funktionsreiche Social-Networking-Plattform mit Benutzerprofilen, Beiträgen und Echtzeit-Chat."
-      },
-      link: "#",
-      tags: ["React", "Node.js", "WebSocket"]
+      link: "https://spartan-kronos.com",
+      tags: ["WordPress", "Elementor", "Responsive"]
     }
   ],
   viewProject: { en: "View Project", de: "Projekt Ansehen" }
@@ -88,7 +78,12 @@ export function PortfolioSection({ lang }: PortfolioSectionProps) {
               </div>
             </CardContent>
             <CardFooter className="p-4">
-              <Button variant="outline" asChild className="w-full text-accent border-accent hover:bg-accent hover:text-accent-foreground">
+              <Button 
+                variant="outline" 
+                asChild 
+                className="w-full text-accent border-accent hover:bg-accent hover:text-accent-foreground"
+                onClick={() => analytics.trackProjectClick(project.title.en, project.tags.join(', '))}
+              >
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   {content.viewProject[lang]} <ExternalLink className="ml-2 h-4 w-4" />
                 </a>
