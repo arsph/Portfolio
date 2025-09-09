@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **📊 Google Analytics**: Track website performance and user interactions
 - **🍪 Cookie Consent**: GDPR-compliant cookie management
 - **⚡ Server-Side Rendering**: Fast loading with Next.js App Router
-- **🔒 Advanced Security**: reCAPTCHA integration and form validation
+- **🔒 Advanced Security**: Form validation and spam protection
 - **📈 SEO Optimized**: Meta tags, sitemap, and robots.txt
 - **☁️ Vercel Ready**: Optimized for Vercel deployment
 
@@ -27,7 +27,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **Forms**: React Hook Form + Zod validation
 - **Analytics**: Google Analytics 4
 - **Email**: Resend API for contact form
-- **Security**: reCAPTCHA integration
+- **Security**: Form validation and spam protection
 - **Icons**: Lucide React
 - **Deployment**: Vercel (Serverless Functions)
 - **Backend**: Next.js Server Actions
@@ -62,8 +62,6 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
    # Email Service (Resend)
    RESEND_API_KEY=re_your_api_key_here
    
-   # reCAPTCHA (Optional)
-   RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
    ```
 
 4. **Start the development server**
@@ -150,11 +148,11 @@ src/
 - **Type Safety**: TypeScript and Zod schemas for robust validation
 - **Error Handling**: User-friendly error messages in multiple languages
 
-### reCAPTCHA Integration
-- **Bot Protection**: Google reCAPTCHA v2 integration
-- **Privacy Compliant**: GDPR-compliant bot detection
-- **User-friendly**: Simple checkbox verification
-- **Reliable**: Industry-standard spam protection
+### Form Protection
+- **Validation**: Client-side and server-side validation
+- **Spam Protection**: Built-in form validation and rate limiting
+- **User-friendly**: Simple form submission process
+- **Reliable**: Robust validation with error handling
 
 ## 📊 Analytics & Tracking
 
@@ -220,7 +218,6 @@ const nextConfig: NextConfig = {
    NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_measurement_id
    NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
    RESEND_API_KEY=re_your_api_key_here
-   RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
    ```
 
 3. **Deploy**
@@ -255,8 +252,6 @@ NEXT_PUBLIC_SITE_URL=https://arsalanparham.com
 # Email Service (Resend)
 RESEND_API_KEY=re_your_api_key_here
 
-# reCAPTCHA (Optional)
-RECAPTCHA_SECRET_KEY=your_recaptcha_secret_key_here
 ```
 
 ## 📱 Responsive Design

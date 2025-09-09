@@ -7,7 +7,6 @@ const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Invalid email address."),
   message: z.string().min(10, "Message must be at least 10 characters."),
-  recaptchaToken: z.string().optional(), // Temporarily made optional
 });
 
 export type ContactFormState = {
@@ -17,30 +16,9 @@ export type ContactFormState = {
     name?: string[];
     email?: string[];
     message?: string[];
-    recaptchaToken?: string[];
   };
 };
 
-async function verifyRecaptcha(token: string): Promise<boolean> {
-  try {
-    const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
-      },
-      body: new URLSearchParams({
-        secret: process.env.RECAPTCHA_SECRET_KEY || '',
-        response: token,
-      }),
-    });
-
-    const data = await response.json();
-    return data.success === true;
-  } catch (error) {
-    console.error('reCAPTCHA verification error:', error);
-    return false;
-  }
-}
 
 async function sendEmail(name: string, email: string, message: string): Promise<boolean> {
   try {
@@ -98,7 +76,6 @@ export async function submitContactForm(
     name: formData.get("name"),
     email: formData.get("email"),
     message: formData.get("message"),
-    recaptchaToken: formData.get("recaptchaToken"),
   });
 
   if (!validatedFields.success) {
@@ -109,16 +86,7 @@ export async function submitContactForm(
     };
   }
 
-  const { name, email, message, recaptchaToken } = validatedFields.data;
-
-  // Temporarily disabled reCAPTCHA verification
-  // const isRecaptchaValid = await verifyRecaptcha(recaptchaToken);
-  // if (!isRecaptchaValid) {
-  //   return {
-  //     message: "reCAPTCHA verification failed. Please try again.",
-  //     status: "error",
-  //   };
-  // }
+  const { name, email, message } = validatedFields.data;
 
   // Send email
   const emailSent = await sendEmail(name, email, message);

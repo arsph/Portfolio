@@ -54,13 +54,9 @@ const content = {
     en: "Failed to send message. Please try again.",
     de: "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut."
   },
-  captcha: {
-    en: "Please complete the reCAPTCHA verification.",
-    de: "Bitte vervollständigen Sie die reCAPTCHA-Verifizierung."
-  },
-  captchaError: {
-    en: "reCAPTCHA verification failed. Please try again.",
-    de: "reCAPTCHA-Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut."
+  mathError: {
+    en: "Please solve the math question correctly.",
+    de: "Bitte lösen Sie die Mathematikfrage korrekt."
   }
 };
 
@@ -110,7 +106,7 @@ export function ContactFormStatic({ lang }: ContactFormStaticProps) {
       // Check if math answer is correct
       if (parseInt(formData.mathAnswer) !== mathQuestion.answer) {
         toast({
-          title: content.captcha[lang],
+          title: content.mathError[lang],
           description: "",
           variant: "destructive",
         });

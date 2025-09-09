@@ -1,12 +1,11 @@
 
 "use client";
 
-import { useActionState, useEffect, useRef } from "react"; // Changed from react-dom's useFormState
+import { useActionState, useEffect } from "react"; // Changed from react-dom's useFormState
 import { useFormStatus } from "react-dom";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-// import ReCAPTCHA from "react-google-recaptcha"; // Temporarily disabled
 import { submitContactForm, type ContactFormState } from "@/app/actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,7 +38,6 @@ const content = {
   emailPlaceholder: { en: "Enter your email address", de: "Geben Sie Ihre E-Mail-Adresse ein" },
   messageLabel: { en: "Your Message", de: "Ihre Nachricht" },
   messagePlaceholder: { en: "Type your message here...", de: "Geben Sie hier Ihre Nachricht ein..." },
-  recaptchaPlaceholder: { en: "reCAPTCHA will be here for spam protection.", de: "reCAPTCHA wird hier zum Spamschutz platziert." },
   submitButton: { en: "Send Message", de: "Nachricht Senden" },
   submittingButton: { en: "Sending...", de: "Wird gesendet..." },
   successTitle: { en: "Message Sent!", de: "Nachricht gesendet!"},
@@ -73,7 +71,6 @@ export function ContactForm({ lang }: ContactFormProps) {
     },
   });
 
-  // const recaptchaRef = useRef<ReCAPTCHA>(null); // Temporarily disabled
 
   useEffect(() => {
     if (state.status === "success") {
@@ -98,31 +95,16 @@ export function ContactForm({ lang }: ContactFormProps) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Temporarily disabled reCAPTCHA validation
-    // const token = recaptchaRef.current?.getValue();
-    // if (!token) {
-    //   toast({
-    //     title: "reCAPTCHA Required",
-    //     description: "Please complete the reCAPTCHA to submit the form.",
-    //     variant: "destructive",
-    //   });
-    //   return;
-    // }
     
     // Create FormData and submit
     const formData = new FormData();
     formData.append("name", form.getValues("name"));
     formData.append("email", form.getValues("email"));
     formData.append("message", form.getValues("message"));
-    formData.append("recaptchaToken", "disabled"); // Temporary placeholder
     
     formAction(formData);
   };
 
-  // const handleRecaptchaChange = (token: string | null) => {
-  //   // Token is automatically handled by the widget
-  //   // We can add additional logic here if needed
-  // }; // Temporarily disabled
 
 
   return (
@@ -180,16 +162,6 @@ export function ContactForm({ lang }: ContactFormProps) {
         )}
       </div>
       
-      {/* Temporarily disabled reCAPTCHA
-      <div className="flex justify-center">
-        <ReCAPTCHA
-          ref={recaptchaRef}
-          sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || ""}
-          onChange={handleRecaptchaChange}
-          theme="light"
-        />
-      </div>
-      */}
 
       <SubmitButton lang={lang} isSubmitting={isSubmitting}/>
     </form>
