@@ -6,8 +6,8 @@ import CookieConsent from '@/components/CookieConsent';
 
 export const metadata: Metadata = {
   title: 'Arsalan Parham - Portfolio',
-  description: 'Arsalan Parham - Professional Developer. Explore my projects, skills, and experience. Contact me for collaboration.',
-  keywords: ['ReactJS', 'NextJS', 'TailwindCSS', 'App Developer', 'Portfolio', 'Arsalan Parham', 'Full Stack Developer', 'Web Developer'],
+  description: 'Arsalan Parham - Software Developer. Explore my projects, skills, and experience. Contact me for collaboration.',
+  keywords: ['Frontend Developer', 'ReactJS', 'NextJS', 'TailwindCSS', 'Software Developer', 'Portfolio', 'Arsalan Parham', 'Data science', 'Web Developer'],
   authors: [{ name: 'Arsalan Parham' }],
   creator: 'Arsalan Parham',
   openGraph: {

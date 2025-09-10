@@ -7,6 +7,7 @@ const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Invalid email address."),
   message: z.string().min(10, "Message must be at least 10 characters."),
+  mathAnswer: z.string().min(1, "Please solve the math question."),
 });
 
 export type ContactFormState = {
@@ -16,6 +17,7 @@ export type ContactFormState = {
     name?: string[];
     email?: string[];
     message?: string[];
+    mathAnswer?: string[];
   };
 };
 
@@ -76,6 +78,7 @@ export async function submitContactForm(
     name: formData.get("name"),
     email: formData.get("email"),
     message: formData.get("message"),
+    mathAnswer: formData.get("mathAnswer"),
   });
 
   if (!validatedFields.success) {
@@ -86,7 +89,27 @@ export async function submitContactForm(
     };
   }
 
-  const { name, email, message } = validatedFields.data;
+  const { name, email, message, mathAnswer } = validatedFields.data;
+
+  // Additional server-side validation
+  const formStartTime = parseInt(formData.get("formStartTime") as string || "0");
+  const submissionTime = parseInt(formData.get("submissionTime") as string || "0");
+  const timeSpent = submissionTime - formStartTime;
+
+  // Time-based validation (server-side backup)
+  if (timeSpent < 3000) {
+    return {
+      message: "Please take a moment to fill out the form properly.",
+      status: "error",
+    };
+  }
+
+  // Log the validation data for monitoring
+  console.log("Form submission validation:", {
+    timeSpent: `${timeSpent}ms`,
+    mathAnswer: mathAnswer,
+    hasValidTime: timeSpent >= 3000,
+  });
 
   // Send email
   const emailSent = await sendEmail(name, email, message);

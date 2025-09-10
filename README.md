@@ -1,6 +1,6 @@
 # 🚀 Arsalan Parham - Portfolio Website
 
-A modern, responsive portfolio website built with Next.js 15, featuring a clean design, multilingual support, Google Analytics, and a secure contact form with advanced spam protection.
+A modern, responsive portfolio website built with Next.js 15, featuring a clean design, multilingual support, Google Analytics, and a secure contact form with advanced spam protection using Math Questions and Time-based validation.
 
 ## ✨ Live Website
 🌐 **https://arsalanparham.com**
@@ -10,11 +10,11 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **🎨 Modern Design**: Clean, professional UI with dark theme
 - **📱 Responsive Layout**: Optimized for all devices and screen sizes
 - **🌍 Multilingual Support**: English and German language switching
-- **📧 Secure Contact Form**: Server-side validation with Resend email service
+- **📧 Secure Contact Form**: Advanced spam protection with Math Questions + Time-based validation
 - **📊 Google Analytics**: Track website performance and user interactions
 - **🍪 Cookie Consent**: GDPR-compliant cookie management
 - **⚡ Server-Side Rendering**: Fast loading with Next.js App Router
-- **🔒 Advanced Security**: Form validation and spam protection
+- **🔒 Advanced Security**: Multi-layered spam protection system
 - **📈 SEO Optimized**: Meta tags, sitemap, and robots.txt
 - **☁️ Vercel Ready**: Optimized for Vercel deployment
 
@@ -27,7 +27,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 - **Forms**: React Hook Form + Zod validation
 - **Analytics**: Google Analytics 4
 - **Email**: Resend API for contact form
-- **Security**: Form validation and spam protection
+- **Security**: Math Questions + Time-based validation
 - **Icons**: Lucide React
 - **Deployment**: Vercel (Serverless Functions)
 - **Backend**: Next.js Server Actions
@@ -41,7 +41,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 ### Setup
 1. **Clone the repository**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/arsph/Portfolio.git
    cd Portfolio
    ```
 
@@ -61,7 +61,6 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
    
    # Email Service (Resend)
    RESEND_API_KEY=re_your_api_key_here
-   
    ```
 
 4. **Start the development server**
@@ -75,7 +74,7 @@ A modern, responsive portfolio website built with Next.js 15, featuring a clean 
 ```
 src/
 ├── app/                    # Next.js App Router
-│   ├── actions.ts         # Server actions (legacy)
+│   ├── actions.ts         # Server actions with spam protection
 │   ├── globals.css        # Global styles
 │   ├── layout.tsx         # Root layout with GA & Cookie Consent
 │   ├── page.tsx           # Home page
@@ -91,7 +90,7 @@ src/
 │   │   ├── ResumeSection.tsx
 │   │   └── ContactSection.tsx
 │   ├── layout/           # Layout components
-│   ├── ContactFormStatic.tsx  # Contact form with spam protection
+│   ├── ContactForm.tsx   # Contact form with advanced spam protection
 │   ├── GoogleAnalytics.tsx    # GA4 integration
 │   ├── CookieConsent.tsx      # Cookie consent banner
 │   └── ...
@@ -108,121 +107,72 @@ src/
 ### 🏠 Hero Section
 - Professional introduction with animated text
 - Call-to-action buttons
-- CV download functionality
 - Social media links
 
 ### 👨‍💻 About Section
 - Personal bio and background
 - Professional summary
 - Key achievements and skills
+- Contact information
 
 ### 🛠️ Skills Section
 - Technical skills showcase
-- Programming languages (JavaScript, TypeScript, Python)
-- Frameworks and tools (React, Next.js, Vue.js, Node.js)
 - Experience levels with progress indicators
 
 ### 💼 Portfolio Section
-- **Weather Forecast App**: React, Vite, Tailwind CSS, OpenWeatherMap API
-- **Portfolio Website**: Next.js, React, TypeScript, Tailwind CSS
-- **Spartan Kronos**: WordPress, Elementor, Multilingual, E-commerce
 - Project descriptions in English and German
 - Live demo links and GitHub repositories
 
-### 📄 Resume Section
-- **WAGEMUT GmbH (2023)**: Frontend Developer - React, TypeScript, Redux
-- **Bricoflor GmbH (2019-2022)**: Frontend Developer - HTML, CSS, Vue, PHP, WordPress, Magento
-- **Education**: M.Sc. Computer Science - Data Science, B.Sc. Computer Engineering
-- Downloadable CV in PDF format
 
 ### 📧 Contact Section
 - Contact information
 - Secure contact form with advanced spam protection
-- Email: info@arsalanparham.com
+- Email
 
-## 🔒 Security Features
+## 🔒 Advanced Security Features
 
-### Form Validation
-- **Client-side**: Real-time validation with React Hook Form
-- **Server-side**: Next.js Server Actions with Zod validation
-- **Type Safety**: TypeScript and Zod schemas for robust validation
-- **Error Handling**: User-friendly error messages in multiple languages
+### 🧮 Math Questions + Time-based Validation
+The contact form uses a sophisticated dual-layer spam protection system:
 
-### Form Protection
-- **Validation**: Client-side and server-side validation
-- **Spam Protection**: Built-in form validation and rate limiting
-- **User-friendly**: Simple form submission process
-- **Reliable**: Robust validation with error handling
+#### **Math Questions:**
+- **Random Generation**: Creates simple addition/subtraction problems (1-10)
+- **User-Friendly**: Easy for humans, challenging for bots
+- **Multilingual**: "Security Question" in English/German
+- **Auto-Refresh**: New question after successful submission
+- **Validation**: Both client-side and server-side validation
+
+#### **Time-based Validation:**
+- **Minimum Time**: 3 seconds required to fill out form
+- **Form Start Tracking**: Records when user starts filling form
+- **Submission Time**: Validates time spent before submission
+- **User-Friendly Messages**: Clear error messages in both languages
+- **Server-side Backup**: Additional validation on the server
 
 ## 📊 Analytics & Tracking
 
 ### Google Analytics 4
 - **Page Views**: Automatic tracking
-- **Custom Events**: CV downloads, project clicks, form interactions
+- **Custom Events**: Project clicks, form interactions
 - **User Behavior**: Track user engagement and session duration
 - **Performance**: Monitor site performance and Core Web Vitals
 
 ### Event Tracking
-- CV download tracking
 - Project click tracking
 - Contact form interactions (start, complete, error)
 - Language switching
 - Social media clicks
-- Math question completion
+- Spam protection events (math question attempts, time validation)
 
 ## 🌐 Multilingual Support
 
 - **Languages**: English (en) and German (de)
 - **Implementation**: Custom language switching with React context
 - **Components**: All text content is localized
-- **Storage**: Language preference stored in localStorage
 - **SEO**: Proper language meta tags and hreflang attributes
 - **Forms**: Error messages and validation in both languages
+- **Security**: Spam protection messages in both languages
 
 ## 🚀 Deployment (Vercel)
-
-### Vercel Configuration
-The project is optimized for Vercel deployment with serverless functions:
-
-```typescript
-// next.config.ts
-const nextConfig: NextConfig = {
-  typescript: {
-    ignoreBuildErrors: true,
-  },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'placehold.co',
-        port: '',
-        pathname: '/**',
-      },
-    ],
-  },
-};
-```
-
-### Deployment Process
-
-1. **Connect to Vercel**
-   - Import your GitHub repository to Vercel
-   - Vercel will automatically detect Next.js configuration
-
-2. **Set Environment Variables**
-   In your Vercel dashboard, add these environment variables:
-   ```env
-   NEXT_PUBLIC_GA_MEASUREMENT_ID=your_ga_measurement_id
-   NEXT_PUBLIC_SITE_URL=https://your-domain.vercel.app
-   RESEND_API_KEY=re_your_api_key_here
-   ```
-
-3. **Deploy**
-   - Push to your main branch
-   - Vercel will automatically build and deploy
 
 ### Vercel Features
 - **Serverless Functions**: Contact form handled by Next.js Server Actions
@@ -251,7 +201,6 @@ NEXT_PUBLIC_SITE_URL=https://arsalanparham.com
 
 # Email Service (Resend)
 RESEND_API_KEY=re_your_api_key_here
-
 ```
 
 ## 📱 Responsive Design
@@ -279,21 +228,26 @@ RESEND_API_KEY=re_your_api_key_here
 - **Validation**: Client-side and server-side validation with Zod schemas
 - **Error Handling**: Comprehensive error tracking and user-friendly messages
 - **Email Delivery**: Resend API provides reliable email delivery with detailed logs
+- **Spam Protection**: Math questions and time-based validation with monitoring
+
+### Debug Tools
+- Vercel function logs
+- Resend email delivery dashboard
+- Browser developer tools
+- Next.js error boundaries
+- Server-side validation logging
 
 ## 📞 Contact Information
 
 - **Email**: info@arsalanparham.com
 - **Website**: https://arsalanparham.com
-- **LinkedIn**: [Your LinkedIn Profile]
-- **GitHub**: [Your GitHub Profile]
+- **LinkedIn**: [linkedin.com/in/arsalanph](https://www.linkedin.com/in/arsalanph)
+- **GitHub**: [github.com/arsph](https://github.com/arsph)
 
 ## 🚀 Performance Features
 
 - **Static Generation**: Pre-rendered pages for fast loading
 - **Image Optimization**: Optimized portfolio images
-- **Code Splitting**: Automatic code splitting for better performance
-- **Lazy Loading**: Images and components loaded on demand
-- **Caching**: Proper cache headers for static assets
 
 ## 🔧 Troubleshooting
 
@@ -302,20 +256,7 @@ RESEND_API_KEY=re_your_api_key_here
 2. **Form Submission**: Check Vercel function logs for server-side errors
 3. **Build Errors**: Ensure all environment variables are set in Vercel
 4. **Deployment**: Check Vercel build logs for deployment issues
-
-### Debug Tools
-- Vercel function logs
-- Resend email delivery dashboard
-- Browser developer tools
-- Next.js error boundaries
-
-## 📝 License
-
-This project is private and proprietary to Arsalan Parham.
-
-## 🤝 Contributing
-
-This is a personal portfolio project. For any suggestions or issues, please contact the owner.
+5. **Spam Protection**: Check server logs for validation data
 
 ---
 
@@ -331,12 +272,6 @@ This is a personal portfolio project. For any suggestions or issues, please cont
 
 **Live at: https://arsalanparham.com** 🌐
 
-## 📋 Recent Updates
+---
 
-- ✅ **Vercel Migration**: Migrated from PHP hosting to Vercel deployment
-- ✅ **Email Service**: Replaced nodemailer with Resend API
-- ✅ **Server Actions**: Updated contact form to use Next.js Server Actions
-- ✅ **Configuration**: Optimized for Vercel serverless functions
-- ✅ **Dependencies**: Cleaned up PHP-related dependencies
-- ✅ **Documentation**: Updated README for Vercel deployment
-- ✅ **Performance**: Optimized for Vercel's edge network
+*For business inquiries or collaboration opportunities, please reach out via the contact form or email.*
