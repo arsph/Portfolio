@@ -221,33 +221,12 @@ RESEND_API_KEY=re_your_api_key_here
 - **Performance**: Core Web Vitals optimization
 - **Multilingual SEO**: Proper language tags and hreflang
 
-## 🧪 Testing & Debugging
-
-### Contact Form Testing
-- **Server Actions**: Contact form uses Next.js Server Actions for server-side processing
-- **Validation**: Client-side and server-side validation with Zod schemas
-- **Error Handling**: Comprehensive error tracking and user-friendly messages
-- **Email Delivery**: Resend API provides reliable email delivery with detailed logs
-- **Spam Protection**: Math questions and time-based validation with monitoring
-
-### Debug Tools
-- Vercel function logs
-- Resend email delivery dashboard
-- Browser developer tools
-- Next.js error boundaries
-- Server-side validation logging
-
 ## 📞 Contact Information
 
 - **Email**: info@arsalanparham.com
 - **Website**: https://arsalanparham.com
 - **LinkedIn**: [linkedin.com/in/arsalanph](https://www.linkedin.com/in/arsalanph)
 - **GitHub**: [github.com/arsph](https://github.com/arsph)
-
-## 🚀 Performance Features
-
-- **Static Generation**: Pre-rendered pages for fast loading
-- **Image Optimization**: Optimized portfolio images
 
 ## 🔧 Troubleshooting
 
