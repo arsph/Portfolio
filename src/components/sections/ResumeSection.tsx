@@ -20,7 +20,7 @@ const content: {
   educationTitle: { en: "Education", de: "Studium" },
   experiences: [
     {
-      date: { en: "2023", de: "2023" },
+      date: { en: "2024 - 2025", de: "2024 - 2025" },
       role: { en: "Frontend Developer", de: "Frontend Entwickler" },
       company: { en: "WAGEMUT GmbH", de: "WAGEMUT GmbH" },
       description: { 
