@@ -38,12 +38,6 @@ export const analytics = {
     });
   },
 
-  // Track CV downloads
-  trackCvDownload: (format: string = 'pdf') => {
-    trackEvent('cv_download', {
-      format: format,
-    });
-  },
 
   // Track social media clicks
   trackSocialClick: (platform: string) => {

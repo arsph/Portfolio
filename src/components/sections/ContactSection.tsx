@@ -4,6 +4,7 @@ import { SectionCard } from "@/components/SectionCard";
 import { ContactForm } from "@/components/ContactForm";
 import type { Language, Content } from "@/types";
 import { Mail } from "lucide-react";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface ContactSectionProps {
   lang: Language;
@@ -22,21 +23,27 @@ const content = {
 export function ContactSection({ lang }: ContactSectionProps) {
   return (
     <SectionCard id="contact" title={content.title[lang]}>
-      <p className="mb-8 text-center">{content.description[lang]}</p>
+      <FadeInOnScroll direction="up" delay={700}>
+        <p className="mb-8 text-center">{content.description[lang]}</p>
+      </FadeInOnScroll>
       <div className="grid md:grid-cols-2 gap-10">
-        <div className="space-y-6">
-          <h3 className="text-xl font-headline text-foreground mb-4">{content.title[lang]}</h3>
-          <div className="flex items-start">
-            <Mail className="h-6 w-6 text-accent mr-4 mt-1 flex-shrink-0" />
-            <div>
-              <h4 className="font-semibold text-foreground">{content.emailLabel[lang]}</h4>
-              <a href={`mailto:${content.emailValue[lang]}`} className="text-muted-foreground hover:text-accent transition-colors">{content.emailValue[lang]}</a>
+        <FadeInOnScroll direction="left" delay={800}>
+          <div className="space-y-6">
+            <h3 className="text-xl font-headline text-foreground mb-4">{content.title[lang]}</h3>
+            <div className="flex items-start">
+              <Mail className="h-6 w-6 text-accent mr-4 mt-1 flex-shrink-0" />
+              <div>
+                <h4 className="font-semibold text-foreground">{content.emailLabel[lang]}</h4>
+                <a href={`mailto:${content.emailValue[lang]}`} className="text-muted-foreground hover:text-accent transition-colors">{content.emailValue[lang]}</a>
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <ContactForm lang={lang} />
-        </div>
+        </FadeInOnScroll>
+        <FadeInOnScroll direction="right" delay={900}>
+          <div>
+            <ContactForm lang={lang} />
+          </div>
+        </FadeInOnScroll>
       </div>
     </SectionCard>
   );

@@ -3,6 +3,7 @@
 import { SectionCard } from "@/components/SectionCard";
 import { Progress } from "@/components/ui/progress";
 import type { Language, Content } from "@/types";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface SkillsSectionProps {
   lang: Language;
@@ -31,17 +32,21 @@ const content = {
 export function SkillsSection({ lang }: SkillsSectionProps) {
   return (
     <SectionCard id="skills" title={content.title[lang]}>
-      <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
-        {content.skills.map((skill, index) => (
-          <div key={index}>
-            <div className="flex justify-between mb-1">
-              <span className="text-sm font-medium text-foreground">{skill.name}</span>
-              <span className="text-xs text-accent">{skill.levelText[lang]} - {skill.level}%</span>
-            </div>
-            <Progress value={skill.level} aria-label={`${skill.name} proficiency: ${skill.level}%`} className="h-3 [&>div]:bg-accent" />
-          </div>
-        ))}
-      </div>
+      <FadeInOnScroll direction="up" delay={700}>
+        <div className="grid md:grid-cols-2 gap-x-8 gap-y-6">
+          {content.skills.map((skill, index) => (
+            <FadeInOnScroll key={index} direction="up" delay={100 + index * 50}>
+              <div>
+                <div className="flex justify-between mb-1">
+                  <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                  <span className="text-xs text-accent">{skill.levelText[lang]} - {skill.level}%</span>
+                </div>
+                <Progress value={skill.level} aria-label={`${skill.name} proficiency: ${skill.level}%`} className="h-3 [&>div]:bg-accent" />
+              </div>
+            </FadeInOnScroll>
+          ))}
+        </div>
+      </FadeInOnScroll>
     </SectionCard>
   );
 }

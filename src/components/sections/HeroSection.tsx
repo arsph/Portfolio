@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import type { Language } from "@/types";
 import { ArrowDown } from "lucide-react";
 import Link from "next/link";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface HeroSectionProps {
   lang: Language;
@@ -29,9 +30,9 @@ export function HeroSection({ lang }: HeroSectionProps) {
       <div className="absolute inset-0 opacity-10 -z-10">
          <Image src="/images/profile.jpg" alt="Abstract background" layout="fill" objectFit="cover" data-ai-hint="abstract tech background" />
       </div>
-      <div className="container mx-auto px-4 animate-fade-in">
+      <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 lg:gap-12">
-          <div className="md:w-1/2 lg:w-2/5 text-center md:text-left">
+          <FadeInOnScroll direction="right" delay={700} className="md:w-1/2 lg:w-2/5 text-center md:text-left">
             <p className="text-lg md:text-xl text-muted-foreground mb-2">{heroContent.greeting[lang]}</p>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-headline text-primary mb-4">
               {heroContent.name[lang]}
@@ -47,8 +48,8 @@ export function HeroSection({ lang }: HeroSectionProps) {
                 {heroContent.cta[lang]} <ArrowDown className="ml-2 h-5 w-5 group-hover:animate-bounce" />
               </Link>
             </Button>
-          </div>
-          <div className="md:w-1/2 lg:w-2/5 mt-8 md:mt-0 flex justify-center">
+          </FadeInOnScroll>
+          <FadeInOnScroll direction="left" delay={900} className="md:w-1/2 lg:w-2/5 mt-8 md:mt-0 flex justify-center">
             {/* Profile Image - Replace with your own image */}
             <Image 
               src="/images/profile.jpg" 
@@ -58,7 +59,7 @@ export function HeroSection({ lang }: HeroSectionProps) {
               className="rounded-lg shadow-2xl object-cover object-top transform transition-all duration-500 hover:scale-105"
               priority 
             />
-          </div>
+          </FadeInOnScroll>
         </div>
       </div>
     </section>

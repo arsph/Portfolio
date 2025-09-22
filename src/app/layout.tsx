@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from "@/components/ui/toaster";
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import CookieConsent from '@/components/CookieConsent';
+import { GlobalLoading } from '@/components/GlobalLoading';
 
 export const metadata: Metadata = {
   title: 'Arsalan Parham - Portfolio',
@@ -67,7 +68,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased" suppressHydrationWarning={true}>
-        {children}
+        <GlobalLoading>
+          {children}
+        </GlobalLoading>
         <Toaster />
         <CookieConsent />
         {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (

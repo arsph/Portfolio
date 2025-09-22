@@ -2,6 +2,7 @@
 
 import { SectionCard } from "@/components/SectionCard";
 import type { Language } from "@/types";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface AboutSectionProps {
   lang: Language;
@@ -28,16 +29,18 @@ const content = {
 export function AboutSection({ lang }: AboutSectionProps) {
   return (
     <SectionCard id="about" title={content.title[lang]}>
-      <div className="space-y-4">
-        <p>{content.paragraph1[lang]}</p>
-        <p>{content.paragraph2[lang]}</p>
-        <h3 className="text-xl font-headline text-primary pt-4">{content.personalInfoTitle[lang]}</h3>
-        <ul className="space-y-2 text-sm">
-          <li className="flex justify-between"><span>{content.email[lang]}</span> <span className="font-medium text-accent hover:underline"><a href={`mailto:${content.myEmail[lang]}`}>{content.myEmail[lang]}</a></span></li>
-          <li className="flex justify-between"><span>{content.github[lang]}</span> <a href="https://github.com/arsph" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">github.com/arsph</a></li>
-          <li className="flex justify-between"><span>{content.linkedin[lang]}</span> <a href="https://www.linkedin.com/in/arsalanph" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">linkedin.com/in/arsalanph</a></li>
-        </ul>
-      </div>
+      <FadeInOnScroll direction="up" delay={700}>
+        <div className="space-y-4">
+          <p>{content.paragraph1[lang]}</p>
+          <p>{content.paragraph2[lang]}</p>
+          <h3 className="text-xl font-headline text-primary pt-4">{content.personalInfoTitle[lang]}</h3>
+          <ul className="space-y-2 text-sm">
+            <li className="flex justify-between"><span>{content.email[lang]}</span> <span className="font-medium text-accent hover:underline"><a href={`mailto:${content.myEmail[lang]}`}>{content.myEmail[lang]}</a></span></li>
+            <li className="flex justify-between"><span>{content.github[lang]}</span> <a href="https://github.com/arsph" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">github.com/arsph</a></li>
+            <li className="flex justify-between"><span>{content.linkedin[lang]}</span> <a href="https://www.linkedin.com/in/arsalanph" target="_blank" rel="noopener noreferrer" className="font-medium text-accent hover:underline">linkedin.com/in/arsalanph</a></li>
+          </ul>
+        </div>
+      </FadeInOnScroll>
     </SectionCard>
   );
 }

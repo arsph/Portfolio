@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { ExternalLink } from "lucide-react";
 import type { Language, Content } from "@/types";
 import { analytics } from "@/lib/analytics";
+import { FadeInOnScroll } from "@/components/FadeInOnScroll";
 
 interface PortfolioSectionProps {
   lang: Language;
@@ -57,39 +58,41 @@ export function PortfolioSection({ lang }: PortfolioSectionProps) {
     <SectionCard id="portfolio" title={content.title[lang]}>
       <div className="grid md:grid-cols-2 gap-6">
         {content.projects.map((project, index) => (
-          <Card key={index} className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
-            <CardHeader className="p-0">
-              <Image
-                src={project.imageSrc}
-                alt={project.title[lang]}
-                width={600}
-                height={400}
-                className="w-full h-48 object-cover"
-                data-ai-hint={project.imageHint}
-              />
-            </CardHeader>
-            <CardContent className="p-4 flex-grow">
-              <CardTitle className="text-xl font-headline mb-2 text-foreground">{project.title[lang]}</CardTitle>
-              <p className="text-sm text-muted-foreground mb-3">{project.description[lang]}</p>
-              <div className="space-x-2">
-                {project.tags.map(tag => (
-                  <span key={tag} className="inline-block bg-muted text-xs px-2 py-1 rounded-full">{tag}</span>
-                ))}
-              </div>
-            </CardContent>
-            <CardFooter className="p-4">
-              <Button 
-                variant="outline" 
-                asChild 
-                className="w-full text-accent border-accent hover:bg-accent hover:text-accent-foreground"
-                onClick={() => analytics.trackProjectClick(project.title.en, project.tags.join(', '))}
-              >
-                <a href={project.link} target="_blank" rel="noopener noreferrer">
-                  {content.viewProject[lang]} <ExternalLink className="ml-2 h-4 w-4" />
-                </a>
-              </Button>
-            </CardFooter>
-          </Card>
+          <FadeInOnScroll key={index} direction="up" delay={700 + index * 200}>
+            <Card className="overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+              <CardHeader className="p-0">
+                <Image
+                  src={project.imageSrc}
+                  alt={project.title[lang]}
+                  width={600}
+                  height={400}
+                  className="w-full h-48 object-cover"
+                  data-ai-hint={project.imageHint}
+                />
+              </CardHeader>
+              <CardContent className="p-4 flex-grow">
+                <CardTitle className="text-xl font-headline mb-2 text-foreground">{project.title[lang]}</CardTitle>
+                <p className="text-sm text-muted-foreground mb-3">{project.description[lang]}</p>
+                <div className="space-x-2">
+                  {project.tags.map(tag => (
+                    <span key={tag} className="inline-block bg-muted text-xs px-2 py-1 rounded-full">{tag}</span>
+                  ))}
+                </div>
+              </CardContent>
+              <CardFooter className="p-4">
+                <Button 
+                  variant="outline" 
+                  asChild 
+                  className="w-full text-accent border-accent hover:bg-accent hover:text-accent-foreground"
+                  onClick={() => analytics.trackProjectClick(project.title.en, project.tags.join(', '))}
+                >
+                  <a href={project.link} target="_blank" rel="noopener noreferrer">
+                    {content.viewProject[lang]} <ExternalLink className="ml-2 h-4 w-4" />
+                  </a>
+                </Button>
+              </CardFooter>
+            </Card>
+          </FadeInOnScroll>
         ))}
       </div>
     </SectionCard>
